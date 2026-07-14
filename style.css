@@ -81,6 +81,11 @@ img {
 
 .hero__top .nav__item a {
     color: white;
+    transition: opacity 0.3s ease;
+}
+
+.hero__top .nav__item a:hover {
+    opacity: 0.7;
 }
 
 .nav {
@@ -383,6 +388,15 @@ img {
     margin-bottom: 2rem;
 }
 
+.footer__nav a {
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.footer__nav a:hover {
+    color: hsl(167, 40%, 24%);
+    opacity: 1;
+}
+
 .footer__social {
     display: flex;
     gap: 2rem;
@@ -417,34 +431,31 @@ img {
     }
 
     .hero__nav {
-        display: none;
-    }
-
-    .hero__nav.active {
-        display: block;
-    }
-
-    .hero__nav.active {
         display: block;
         position: absolute;
-        
         width: 90%;
         top: 80px;
         left: 50%;
-        transform: translateX(-50%);
-        
         background: white;
         padding: 5rem 0;
         text-align: center;
         z-index: 10;
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
     }
 
-    .hero__nav.active::before {
+    .hero__nav.active {
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .hero__nav::before {
         content: "";
         position: absolute;
         top: -20px;
-        right:0px;
-        
+        right: 0;
         border: 12px solid transparent transparent #fff transparent;
     }
 
@@ -460,15 +471,6 @@ img {
         transform: translate(-50%, -50%);
     }
 
-    .hero__nav.active ~ .hero__content .hero__arrow {
-        display: none;
-    }
-
-    .nav {
-        flex-direction: column;
-        gap: 2rem;
-    }
-
     .hero__top .nav__item a {
         color: hsl(213, 9%, 39%);
     }
@@ -476,22 +478,6 @@ img {
     .nav__cta {
         background: hsl(51, 100%, 49%);
 
-    }
-
-    /* BACKGROUND */
-    .hero__nav::before {
-        content: "";
-        position: absolute;
-        top: -15px;
-        right: 0;
-
-        border: 15px solid transparent;
-        border-bottom-color: white;
-        border-right-color: white;
-    }
-
-    .hero__nav.active~.hero__content .hero__arrow {
-        display: none;
     }
 
     .hero__title {
