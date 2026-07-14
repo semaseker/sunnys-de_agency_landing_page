@@ -79,10 +79,10 @@ burger.addEventListener("click", () => {
   }
 });
 
-// GSAP animasyonları
+// Register the GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
-// Hero ok — yukarı/aşağı hareket
+// Hero arrow — floating up and down animation
 gsap.set(".hero__arrow", { xPercent: -50, yPercent: -50 });
 gsap.to(".hero__arrow", {
   y: 20,
@@ -92,7 +92,7 @@ gsap.to(".hero__arrow", {
   yoyo: true,
 });
 
-// Main bölümleri — scroll ile sayfaya girme
+// Main sections — animate into view on scroll
 const scrollSections = gsap.utils.toArray(
   ".service, .feature, .testimonials, .gallery__item"
 );
